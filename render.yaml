@@ -2,8 +2,8 @@ services:
   - type: web
     name: kz-fake-news-api
     env: python
-    plan: starter  # Минимум нужен план с 512MB RAM
-    region: oregon  # Выберите ближайший регион
+    plan: starter
+    region: oregon
     buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT --workers 1
     envVars:
@@ -17,5 +17,3 @@ services:
         value: "0.40"
       - key: CORS_ORIGINS
         value: "*"
-      - key: PYTHON_VERSION
-        value: "3.11.11"
